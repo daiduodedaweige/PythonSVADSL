@@ -1,0 +1,69 @@
+Line 191: ~reset & ~(~io_readForRepl_0 | _GEN_0 ^ ~_GEN_1)
+// src/main/scala/dongjiang/data/DataCM.scala:143:17
+
+Line 197: _GEN_17 & ~_GEN_16
+// src/main/scala/dongjiang/data/DataCM.scala:158:12
+
+Line 211: _GEN_17 & ~(~io_task_bits_dataVec_0 | reg_dataVec_0)
+// src/main/scala/dongjiang/data/DataCM.scala:160:77
+
+Line 217: _GEN_17 & ~(~io_task_bits_dataVec_1 | reg_dataVec_1)
+// src/main/scala/dongjiang/data/DataCM.scala:160:77
+
+Line 223: _GEN_18 & 2'({1'h0, io_clean_bits_dataVec_0} + {1'h0, io_clean_bits_dataVec_1}) == 2'h0
+// src/main/scala/dongjiang/data/DataCM.scala:169:12
+
+Line 229: _GEN_18 & ~_GEN_16
+// src/main/scala/dongjiang/data/DataCM.scala:170:12
+
+Line 235: _GEN_18 & taskHit
+// src/main/scala/dongjiang/data/DataCM.scala:171:12
+
+Line 241: _GEN_19 & (|reg_wRBeat)
+// src/main/scala/dongjiang/data/DataCM.scala:180:12
+
+Line 247: _GEN_21 & reg_wRBeat == 2'h0
+// src/main/scala/dongjiang/data/DataCM.scala:183:12
+
+Line 253: _GEN_21 & ~(_io_readToDB_valid_T_1 | io_readForRepl_0 | ~reg_opBeat)
+// src/main/scala/dongjiang/data/DataCM.scala:184:19
+
+Line 259: _GEN_19 & (|reg_wSBeat)
+// src/main/scala/dongjiang/data/DataCM.scala:193:12
+
+Line 265: _GEN_22 & reg_wSBeat == 2'h0
+// src/main/scala/dongjiang/data/DataCM.scala:196:12
+
+Line 271: _GEN_22 & ~(_io_readToCHI_valid_T | _io_readToDS_valid_T_1 | (&reg_state) | _io_resp_valid_T)
+// src/main/scala/dongjiang/data/DataCM.scala:197:12
+
+Line 277: _GEN_24 & ~(_GEN_23 | ~next_opBeat)
+// src/main/scala/dongjiang/data/DataCM.scala:205:19
+
+Line 283: _GEN_24 & ~(~_GEN_23 | next_opBeat)
+// src/main/scala/dongjiang/data/DataCM.scala:206:19
+
+Line 289: ~reset & ~(~taskHit | ~reg_opBeat)
+// src/main/scala/dongjiang/data/DataCM.scala:209:17
+
+Line 295: ~_set_T & cutIdHit & ~reset & ~_GEN_16
+// src/main/scala/dongjiang/data/DataCM.scala:217:12
+
+Line 301: ~reset & ~(_GEN_25 | _io_resp_valid_T | (&reg_state))
+// src/main/scala/dongjiang/data/DataCM.scala:274:17
+
+Line 307: ~reset & ~(_GEN_25 | _GEN_26 | _GEN_27)
+// src/main/scala/dongjiang/data/DataCM.scala:275:17
+
+Line 313: ~reset & ~(~_GEN_26 | ~(|reg_state) | (&reg_state))
+// src/main/scala/dongjiang/data/DataCM.scala:276:17
+
+Line 319: ~reset & ~(~_GEN_27 | ~(|reg_state) | _GEN_16 | _io_resp_valid_T | (&reg_state))
+// src/main/scala/dongjiang/data/DataCM.scala:277:17
+
+Line 325: ~reset & to_cnt > 23'hEA5F
+// src/main/scala/dongjiang/data/DataCM.scala:289:23
+
+Line 332: ~reset & to_cnt[22]
+// src/main/scala/dongjiang/data/DataCM.scala:289:23
+

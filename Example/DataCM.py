@@ -2,7 +2,7 @@ import sys
 sys.path.append("/nfs/home/weijing/workspace/generateSVA")
 from PySVADSL.env.sva_dsl import state_transfer, assert_Imp, assert_notImp, assume_Imp, assume_notImp, cover
 from PySVADSL.env.sva_dsl import SVAExpr as sva
-from PySVADSL.env.sva_utils import build_full_module_code, dump_verilog_exprs, save_to_file, include
+from PySVADSL.env.sva_utils import build_full_module_code, dump_verilog_exprs, save_to_file, include, generate_bind_statement
 from enum import IntEnum
 pkg = include("assert_macros.svh")
 sva_code = ""
@@ -58,6 +58,8 @@ tdfdcid = sva("io_txDatFire_bits_dcid", width=3)
 dcid = sva("io_dcid", width=3)
 tdv0 = sva("io_task_bits_dataVec_0")
 tdv1 = sva("io_task_bits_dataVec_1")
+adv0 = sva("io_alloc_bits_dataVec_0")
+adv1 = sva("io_alloc_bits_dataVec_1")
 
 ######################## state transfer basic
 
@@ -180,18 +182,18 @@ sva_code += assume_Imp("assume4", clk, condition, result)
 condition = sva("taskHit") 
 result = state == STATE.ALLOC
 sva_code += assume_Imp("assume8", clk, condition, result)
+# datavec should not be all zero
+condition = adv0 | adv1
+sva_code += assume_notImp("assume_alloc", clk, condition)
+
 
 ######################## cover
-condition = (tdv0 == 0) & (tdv1 == 0)
-sva_code += cover("datavec00", clk, condition)
 condition = (tdv0 == 1) & (tdv1 == 0)
 sva_code += cover("datavec01", clk, condition)
 condition = (tdv0 == 0) & (tdv1 == 1)
 sva_code += cover("datavec10", clk, condition)
 condition = (tdv0 == 1) & (tdv1 == 1)
 sva_code += cover("datavec11", clk, condition)
-
-
 
 ######################## print code patern
 full_code = build_full_module_code(module, pkg, clk, sva_code)
